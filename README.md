@@ -9,10 +9,10 @@ A behaviour tree is a way of structuring AI decision-making in games as a tree o
 
 The main node types are:
 
-- Leaf nodes do the actual work: either checking a condition (“Is the player visible?”) or performing an action (“Move to cover”, “Attack”).
-- Sequence nodes run their children in order and stop at the first failure, like an “AND”. Example: see player → move closer → attack.
-- Selector (fallback) nodes try their children in order and stop at the first success, like an “OR”. Example: try to attack, otherwise take cover, otherwise patrol.
-- Decorators modify a single child, for example by inverting its result, repeating it, or adding a cooldown.
+- **Leaf nodes** do the actual work: either checking a condition (“Is the player visible?”) or performing an action (“Move to cover”, “Attack”).
+- **Sequence nodes** run their children in order and stop at the first failure, like an “AND”. Example: see player → move closer → attack.
+- **Selector** (fallback) nodes try their children in order and stop at the first success, like an “OR”. Example: try to attack, otherwise take cover, otherwise patrol.
+- **Decorators** modify a single child, for example by inverting its result, repeating it, or adding a cooldown.
 
 Compared to finite state machines, behaviour trees are easier to scale and maintain. Behaviours are modular, so you can reuse the same “find cover” branch across many enemy types, and you can add new logic without rewiring a tangle of state transitions. They’re widely used in games like the Halo series and in engines such as Unreal and Unity (via plugins or in my case implemented from scratch).
 
